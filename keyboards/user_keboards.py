@@ -28,7 +28,7 @@ information_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
         [InlineKeyboardButton(text=KEYBOARDS['admin'],
                               url='https://t.me/TopTgCreator')],
         [InlineKeyboardButton(text=KEYBOARDS['back'],
-                              callback_data='back_pressed')]
+                              callback_data='back_pressed_1'),]
     ]
 )
 
@@ -43,6 +43,23 @@ profile_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
         [InlineKeyboardButton(text=KEYBOARDS['bot_constructor'],
                               callback_data='bot_constructor_pressed')],
         [InlineKeyboardButton(text=KEYBOARDS['back'],
-                              callback_data='back_pressed')],
+                              callback_data='back_pressed_1')],
+    ],
+)
+
+payment_method_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text=KEYBOARDS['crypto_bot'],
+                                 callback_data='crypto_bot_pressed'),
+            InlineKeyboardButton(text=KEYBOARDS['ton'],
+                                 callback_data='ton_pressed'),
+        ],
+        [
+            InlineKeyboardButton(text=KEYBOARDS['back'],
+                                 callback_data='back_pressed_2'),
+            InlineKeyboardButton(text=KEYBOARDS['card'],
+                                 callback_data='card_pressed'),
+        ],
     ]
 )
