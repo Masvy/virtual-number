@@ -9,7 +9,7 @@ start_router = Router()
 
 
 @start_router.message(CommandStart())
-@start_router.callback_query(F.data == 'back_pressed')
+@start_router.callback_query(F.data == 'back_pressed_1')
 async def start_bot(update: types.Update):
     if isinstance(update, types.Message):
         await update.answer(text=USERS['greetings'],
