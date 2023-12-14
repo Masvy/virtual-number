@@ -7,6 +7,7 @@ USERS: dict[str: str] = {
                  'Используя данного бота вы автоматически принимаете '
                  'правила бота.',
     'information': 'TOPSMSBOT – уникальный сервис для приёма SMS сообщений',
+    'payment_method': '👇 Выберите способ пополнения баланса:',
 }
 
 KEYBOARDS: dict[str: str] = {
@@ -21,11 +22,18 @@ KEYBOARDS: dict[str: str] = {
     'replenish': '💰 Пополнить',
     'status': '👑 Статус',
     'bot_constructor': '🤖 Конструктор ботов',
+    'crypto_bot': '🤖 CryptoBot',
+    'ton': '💎 TON',
+    'card': '💳 Карта/Qiwi',
 }
 
 
-def write_profile(user_id):
-    return f'📱 Профиль\n➖➖➖➖➖➖\n🆔 Мой ID: <code>{user_id}</code>\n⏱ Дней в боте: -\n'\
-           '➖➖➖➖➖➖\n👑 Статус: -\n👥 Партнёров: -\n🤖 Ботов: -\n➖➖➖➖➖➖\n'\
-           '💳 Баланс:\n⚪️ Пополнено: -\n⚪️ Потрачено: -\n⚪️ Выведено: -\n➖➖➖➖➖➖\n'\
+def write_profile(user_id,
+                  registration_at,
+                  status,
+                  partners,
+                  bots):
+    return f'📱 Профиль\n➖➖➖➖➖➖\n🆔 Мой ID: <code>{user_id}</code>\n⏱ Дней в боте: {registration_at}\n'\
+           f'➖➖➖➖➖➖\n👑 Статус: <i>{status}</i>\n👥 Партнёров: {partners}\n🤖 Ботов: {bots}\n➖➖➖➖➖➖\n'\
+           '💳 Баланс: -\n⚪️ Пополнено: -\n⚪️ Потрачено: -\n⚪️ Выведено: -\n➖➖➖➖➖➖\n'\
            '⚪️ На вывод: -\n⚪️ Основной: -'
