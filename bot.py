@@ -6,6 +6,9 @@ import betterlogging as bl
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.redis import RedisStorage, DefaultKeyBuilder
 
+from middlewares.check_register import RegisterCheck
+from config.config import bot_config
+from db.database import create_tables
 from handlers import routers_list
 
 
@@ -40,9 +43,14 @@ async def main():
     env = Env()
     env.read_env()
 
-    bot: Bot = Bot(token=env('BOT_TOKEN'),
+    await create_tables()
+
+    bot: Bot = Bot(token=bot_config.bot_token,
                    parse_mode='HTML')
     dp: Dispatcher = Dispatcher(storage=storage)
+
+    dp.message.middleware(RegisterCheck())
+    dp.callback_query.middleware(RegisterCheck())
 
     dp.include_routers(*routers_list)
 
