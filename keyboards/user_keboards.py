@@ -56,10 +56,54 @@ payment_method_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
                                  callback_data='ton_pressed'),
         ],
         [
+            InlineKeyboardButton(text=KEYBOARDS['yoomoney'],
+                                 callback_data='yoomoney_pressed'),
+            InlineKeyboardButton(text=KEYBOARDS['aaio'],
+                                 callback_data='aaio_pressed'),
+        ],
+        [InlineKeyboardButton(text=KEYBOARDS['back'],
+                              callback_data='back_pressed_2'),],
+    ]
+)
+
+statuses_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text=KEYBOARDS['for_month'],
+                                 callback_data='for_month_pressed'),
+            InlineKeyboardButton(text=KEYBOARDS['for_3month'],
+                                 callback_data='for_3month_pressed'),
+        ],
+        [
             InlineKeyboardButton(text=KEYBOARDS['back'],
                                  callback_data='back_pressed_2'),
-            InlineKeyboardButton(text=KEYBOARDS['card'],
-                                 callback_data='card_pressed'),
+            InlineKeyboardButton(text=KEYBOARDS['for_6month'],
+                                 callback_data='for_6month_pressed')
+        ]
+    ]
+)
+
+proof_payment_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text=KEYBOARDS['proof_payment'],
+                              callback_data='proof_payment_pressed')]
+    ]
+)
+
+agreement_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text=KEYBOARDS['yes'],
+                                 callback_data='yes_pressed'),
+            InlineKeyboardButton(text=KEYBOARDS['no'],
+                                 callback_data='no_pressed'),
         ],
+    ]
+)
+
+back_menu_kb: InlineKeyboardMarkup = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text=KEYBOARDS['menu'],
+                              callback_data='back_pressed_1'),],
     ]
 )
