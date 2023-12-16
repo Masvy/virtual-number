@@ -7,6 +7,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.redis import RedisStorage, DefaultKeyBuilder
 
 from middlewares.check_register import RegisterCheck
+from keyboards.set_menu import set_main_menu
 from config.config import bot_config
 from db.database import create_tables
 from handlers import routers_list
@@ -48,6 +49,8 @@ async def main():
     bot: Bot = Bot(token=bot_config.bot_token,
                    parse_mode='HTML')
     dp: Dispatcher = Dispatcher(storage=storage)
+
+    await set_main_menu(bot)
 
     dp.message.middleware(RegisterCheck())
     dp.callback_query.middleware(RegisterCheck())
